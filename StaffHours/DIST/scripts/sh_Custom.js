@@ -1,4 +1,4 @@
-﻿const Endpoint = "http://localhost:49861/api/employeeoverview";
+﻿const Endpoint = "/api/employeeoverview";
 
 
 

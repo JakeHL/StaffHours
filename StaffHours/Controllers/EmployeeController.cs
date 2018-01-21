@@ -15,5 +15,11 @@ namespace StaffHours.Controllers
         {
             return Utils.DataAccess.GetEmployees();
         }
+
+        // GET api/Employee/1
+        public IEnumerable<Employee> Get(int id)
+        {
+            return Utils.DataAccess.GetEmployees().Where(x => x.Employee_ID == id);
+        }
     }
 }

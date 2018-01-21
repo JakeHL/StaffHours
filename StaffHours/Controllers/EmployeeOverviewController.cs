@@ -15,5 +15,11 @@ namespace StaffHours.Controllers
         {
             return new Utils.EmployeeOverviewFactory().GetAllOverviews();
         }
+
+        // GET: api/EmployeeOverview/1
+        public EmployeeOverview Get(int id)
+        {
+            return new Utils.EmployeeOverviewFactory().GetOverview(id);
+        }
     }
 }
