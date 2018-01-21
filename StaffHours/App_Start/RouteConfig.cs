@@ -13,11 +13,18 @@ namespace StaffHours
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /* 
+             * This route is to make launching the page easier during dev.
+             * As we're using MVC Web API for that data, nothing in /DIST/ has a dependency on
+             * .Net or MVC, it could be served from any website providing the api was accessible.
+             * This also means we don't need Controllers/HomeController.cs if we were to go into production
+             */
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "QuickLaunch",
+                url: "",
+                defaults: new { controller = "Home", action = "Index" }
             );
+
         }
     }
 }

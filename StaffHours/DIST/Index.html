@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="./scripts/vue.js" type="text/javascript"></script>
+    <script src="./scripts/sh_Custom.js" type="text/javascript"></script>
+
+    <link href="./styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="./styles/bulma.css" rel="stylesheet" />
+    <link href="./styles/sh_custom.css" rel="stylesheet" />
+
+    <title>Staff Hours</title>
+</head>
+
+<body>
+    
+    <nav class="navbar" role="navigation">
+        <div class="navbar-brand">
+            <span class="sh-navbar-title">
+                Staff Hours
+            </span>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="navbar-menu"> 
+            <div class="navbar-start">
+                <div class="navbar-item selected">
+                    <i class="fa fa-calendar"></i>
+                    Overview
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="user-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+            </div>            
+        </div>
+    </nav>
+
+    <div class="section sh-subheading sh-sep-bottom">
+        <div class="container">
+            <h1>Total hours over the next month</h1>
+        </div>        
+    </div>
+
+    <div class="section">
+        <div id="sh-grid-main" class="container sh-grid">
+            
+            <div v-bind:class="{ hidden: !isLoaded }" class="sh-grid-content">
+                <div class="columns is-mobile sh-columns-header">
+                    <div class="column">
+                        <i class="fa fa-hashtag"></i>
+                        Employee ID
+                    </div>
+                    <div class="column is-two-thirds-tablet">
+                        <i class="fa fa-user"></i>
+                        Full Name
+                    </div>
+                    <div class="column">
+                        <i class="fa fa-clock-o"></i>
+                        Total Hours
+                    </div>
+                </div>
+                <div v-for="item in employeeOverviews" class="columns is-mobile">
+                    <div class="column">{{item.id}}</div>
+                    <div class="column is-two-thirds-tablet">{{item.fullName}}</div>
+                    <div class="column">{{item.totalHours}}</div>
+                </div>
+            </div>
+
+            <div v-bind:class="{ hidden: isLoaded }" class="spinner-outer">
+                <div class="spinner"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        var shGridMain = new Vue({
+            el: '#sh-grid-main',
+            data: {
+                employeeOverviews: [],
+                isLoaded: false
+            },
+            created: function () {
+                var self = this;
+                Employees.OverviewsRetreived = function (data) {
+                    self.employeeOverviews = data;
+                    self.isLoaded = true;
+                }
+                Employees.getOverviews();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

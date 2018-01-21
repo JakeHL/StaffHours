@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace StaffHours
@@ -13,11 +12,11 @@ namespace StaffHours
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            /* not using areas in this project - cut out all the VS bootstrapping to save space */
+            // AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

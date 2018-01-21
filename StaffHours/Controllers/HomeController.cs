@@ -10,9 +10,8 @@ namespace StaffHours.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
-            return View();
+            /* Please see description of why this exists in RouteConfig.cs Line 16 */
+            return RedirectPermanent("/DIST/index.html");
         }
     }
 }

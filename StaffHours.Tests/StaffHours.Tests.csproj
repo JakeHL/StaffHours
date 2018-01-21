@@ -98,9 +98,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ShiftsControllerTest.cs" />
+    <Compile Include="Controllers\Employee_Works_ShiftControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Controllers\ValuesControllerTest.cs" />
+    <Compile Include="Controllers\EmployeeControllerTest.cs" />
+    <Compile Include="Utils\EmployeeOverviewFactoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

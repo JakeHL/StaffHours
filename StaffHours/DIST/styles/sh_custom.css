@@ -1,0 +1,205 @@
+﻿/*
+    Colors:
+        bg_grey: #323b40
+        hilight_orage: #ff9e1b
+        subtle_text: #ccd5db
+*/
+
+/*
+    For some strange reason bulma css chooses to always show the scroll bar
+    so let's just set it back to auto
+*/
+html {
+    overflow: auto;    
+}
+
+.navbar {
+    background-color: #323b40;
+}
+
+.navbar-end {
+    padding: 0px 1.3rem;
+}
+
+.navbar-burger {
+    color: #FFF;
+}
+
+    .navbar-burger span {
+        width: 30px;
+        left: calc(50% - 15px);
+        display: block;
+        height: 3px;
+        border-radius: 3px;
+    }
+
+.navbar-burger span:first-of-type {
+    top: calc(50% - 10px);
+}
+
+.navbar-burger span:last-of-type {
+    top: calc(50% + 8px);
+}
+
+.navbar-menu, .navbar-item {
+    color: #ccd5db;
+}
+
+.navbar-end, .navbar-start, .navbar-burger {
+    align-items: center;
+}
+
+.section {
+    padding: 1rem;
+    background-color: #FFF;
+}
+
+/* Below is completely custom CSS, above are style overrides of the bulma css framework */
+html {
+    /* Base font size */
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+body {
+    /*background: #2acbfc;
+    background: linear-gradient(to bottom, #FFF 0%, #FFF 50%, #CCC 100%);
+    min-height: 100vh;*/
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.sh-navbar-title {
+    padding: .2rem 1.2rem;
+    text-align: center;
+
+    background-color: #ff9e1b;
+    color: #FFF;
+    border-right: 5px solid #ff7710;
+
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.navbar-item i:first-of-type {
+    margin-right: .5rem;
+    color: #ccd5db;
+}
+
+.navbar-item.selected {
+    color: #FFF;
+    position: relative;
+}
+
+    .navbar-item {
+        height: 100%;
+    }
+
+    .navbar-item.selected::after {
+        content: "";
+
+        width: 0px;
+        height: 0px;
+
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #FFF;
+
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translate(-50%, 0px);
+    }
+
+.user-icon {
+    border: 1px solid #FFF;
+    border-radius: 100%;
+
+    width: 30px;
+    height: 30px;
+
+    margin-left: 1rem;
+    text-align: center;
+
+    transition: background-color 300ms, color 300ms;
+}
+
+    .user-icon:hover {
+        background-color: #FFF;
+        color: #323b40;
+
+        cursor: pointer;
+    }
+
+    .sh-subheading h1 {
+        font-size: 2rem;
+    }
+
+.sh-sep-bottom {
+    border-bottom: 1px solid #AAA;
+}
+
+.sh-grid {
+    min-height: 500px;
+    position: relative;
+}
+
+.spinner-outer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {  
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 16px solid #CCD5DB;
+    border-top: 16px solid #FF9E1B;
+
+    animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(360deg); }
+}
+
+.sh-grid .columns {
+    position: relative;
+}
+
+.sh-grid .columns:nth-of-type(even) {
+    background-color: #F9F9F9;
+}
+
+.sh-grid .columns.sh-columns-header .column {
+    font-weight: bold;
+    border-bottom: 1px solid #DDD;
+}
+
+    .sh-grid .columns.sh-columns-header .column:hover {
+        border-bottom: 1px solid #ff9e1b;
+    }
+
+    .sh-grid .columns:not(.sh-columns-header):before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        content: "";
+        transition: border 200ms;
+        border: 1px solid transparent;
+        border-left: 4px solid transparent;
+    }
+
+    .sh-grid .columns:not(.sh-columns-header):hover:before {
+        border: 1px solid #DDD;
+        border-left: 4px solid #ff9e1b;
+    }
+
+.hidden {
+    display: none;
+}
